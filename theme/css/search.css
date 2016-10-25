@@ -1,0 +1,34 @@
+/*搜索结果*/
+.article-list {
+    padding: 0 50px;
+    margin: 0 auto;
+}
+.title{
+    font-size: 26px;
+    font-weight: 700;
+    margin: 20px 0 30px;
+}
+.preview{
+    list-style: none;
+    margin: 0 0 50px;
+    line-height: 1.5em;
+    color: #293846;
+}
+
+/*文章标题链接开始*/
+
+.title:link {
+    color: #293846;
+}
+
+.title:visited {
+    color: #293846;
+}
+
+.title:hover {
+    color: #006cff;
+}
+
+.title:active {
+    color: #006cff;
+}

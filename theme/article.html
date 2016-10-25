@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="{{range .Tags}}{{.}},{{end}}">
+    <meta name="description" content="{{.Title}}">
+
+    <title>{{.Title}}</title>
+
+    <link rel="shortcut icon" href="{{.Site.Root}}/favicon.png">
+    <link rel="apple-itouch-icon" href="{{.Site.Root}}/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/article.css" />
+    <link rel="stylesheet" type="text/css" href="/css/search.css" />
+
+
+
+    <script type="text/javascript">
+        var timeSinceLang = {
+            year: '{{i18n "since_year"}}',
+            month: '{{i18n "since_month"}}',
+            day: '{{i18n "since_day"}}',
+            hour: '{{i18n "since_hour"}}',
+            minute: '{{i18n "since_minute"}}',
+            second: '{{i18n "since_second"}}'
+        };
+        var root = '{{.Site.Root}}';
+    </script> {{if .Develop}}
+    <script type="text/javascript">
+        var conn, reloadTimer, connectTimer;
+        var connect = function() {
+            conn = new WebSocket('ws://' + location.host + '/live');
+            conn.onmessage = function(event) {
+                if (event.data === 'change') {
+                    if (reloadTimer) clearTimeout(reloadTimer);
+                    reloadTimer = setTimeout(function() {
+                        window.location.reload();
+                    }, 200);
+                }
+            };
+            conn.onclose = function() {
+                if (connectTimer) clearTimeout(connectTimer);
+                connectTimer = setTimeout(function() {
+                    connect();
+                }, 1000);
+            };
+        };
+        connect();
+    </script> {{end}}
+
+</head>
+
+<body>
+    <!--左侧开始-->
+    <div class="header">
+        <!--搜索开始-->
+        <div class="search">
+            <div class="search-wrap">
+                <input id="search" placeholder="{{i18n " search "}}..." data-root="{{.Site.Root}}">
+                <svg>
+                    <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
+                </svg>
+            </div>
+        </div>
+        <!--搜索结束-->
+        <!--信息开始-->
+        <div class="h-center">
+            <div class="icon"><img src="{{.Site.Root}}/img/avatar.png" alt="头像"></div>
+            <div class="name"><span>{{.Site.Title}}</span></div>
+            <div class="intro">{{.Site.Subtitle}}</div>
+            <div class="nav">
+                <ul>
+                    <li><a href="{{.Site.Root}}/index.html">首页</a></li>
+                    <li><a href="{{.Site.Root}}/archive.html">{{i18n "archive"}}</a></li>
+                    <li><a href="{{.Site.Root}}/tag.html">{{i18n "tag"}}</a></li>
+                    {{if .Site.Url}}
+                    <li><a href="{{.Site.Root}}/atom.xml">{{i18n "rss"}}</a></li>{{end}}
+                </ul>
+            </div>
+        </div>
+        <!--信息结束-->
+        <!--版权开始-->
+        <div class="copy">
+            <div class="copy-wrap">
+                <span class="copy-left">{{.Site.Title}} © 2016</span>
+                <span class="copy-right">Powered by <a href="http://www.inkpaper.io/" target="_blank" class="copy-link">Ink</a></span>
+            </div>
+        </div>
+        <!--版权结束-->
+
+    </div>
+    <!--左侧结束-->
+    <div class="main">
+        <ul class="article-list">
+            <!--搜索结果-->
+
+            <div class="artice">
+                <span class="artice-title">{{.Title}}</span>
+                <div class="post-bottom">
+                    {{if .Update}}
+                    <!--时间-->
+                    <span class="post-time" data-time="{{.Update}}"><span class="from"></span> {{i18n "updated"}}</span>
+                    {{else}}
+                    <span class="post-time" data-time="{{.Date}}"><span class="from"></span></span>
+                    {{end}}
+                    <!--用户名-->
+                    <span class="post-by">by</span> {{if .Author.Name}}<a class="post-name" href="">{{.Author.Name}}</a>{{end}}
+                    {{range .Tags}}
+                    <!--标签-->
+                    <a class="post-tag" href="{{$.Site.Root}}/tag/{{.}}/index.html">{{.}}</a> {{end}}
+                </div>
+            </div>
+            <!--正文-->
+            <article class="content">{{.Content}}</article>
+
+
+
+            <!--上一篇、下一篇文章开始-->
+            <div class="main-page">
+                <hr> {{if .Prev}}
+                <section class="prev{{if .Next}} more{{end}}">
+                    <a class="page-number page-up" href="{{.Site.Root}}/{{.Prev.Link}}">{{i18n "prev_reading"}}</a>
+                </section>
+                {{end}} {{if .Next}}
+                <section class="next{{if .Prev}} more{{end}}">
+                    <a class="page-number page-down" href="{{.Site.Root}}/{{.Next.Link}}">{{i18n "next_reading"}}</a>
+                </section>
+                {{end}}
+            </div>
+            <!--上一篇、下一篇文章结束-->
+
+            <div class="clear">
+                <!--版权开始-->
+            </div>
+            <div class="m-copy">
+                <span class="m-copy-left">Qian's Blog © 2016</span>
+                <span class="m-copy-right">Powered by <a href="http://www.inkpaper.io/" target="_blank" class="copy-link">Ink</a></span>
+            </div>
+            <!--版权结束-->
+        </ul>
+    </div>
+    <script src="{{.Site.Root}}/bundle/index.js"></script>
+</body>
+
+</html>

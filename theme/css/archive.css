@@ -1,0 +1,377 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background: url(../img/bg.jpg) top left no-repeat #006cff;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    min-width: 370px;
+    display: table;
+}
+
+.h-center {
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 350px;
+}
+
+.search {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+}
+
+.search-wrap {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+#search {
+    padding: 10px 25px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: .8;
+    outline: medium;
+}
+
+.search-wrap>svg {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 25px;
+    height: 25px;
+    opacity: .3;
+}
+
+.icon>img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+.intro {
+    font-size: 16px;
+}
+
+.nav {
+    margin: 50px auto;
+    padding: 20px 0px;
+}
+
+.nav ul {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav li {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.nav a {
+    padding-bottom: 4px;
+    border: 2px solid transparent;
+}
+
+.copy {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.copy-wrap {
+    width: 90%;
+    margin: 0 auto;
+    border-top: 1px solid #fff;
+    padding: 10px;
+}
+
+.copy span {
+    padding: 5px;
+}
+
+.copy-left {
+    float: left;
+}
+
+.copy-right {
+    float: right;
+}
+
+
+/*导航链接开始*/
+
+.nav a:link {
+    color: #fff;
+}
+
+.nav a:visited {
+    color: #fff;
+}
+
+.nav a:hover {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.nav a:active {
+    color: #fff;
+}
+
+
+/*导航链接结束*/
+
+.main {
+    position: absolute;
+    left: 40%;
+    height: 100%;
+    width: 60%;
+    min-width: 370px;
+    overflow-y: scroll;
+    /*滚动条一直出现*/
+}
+
+.artice {
+    padding: 50px;
+    color: #293846;
+}
+
+.artice hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin-top: 30px;
+    background: #ddd;
+}
+
+.artice-title {
+    font-size: 26px;
+    margin: 20px 0 30px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.artice-number {
+    font-size: 26px;
+    margin: 20px 0 30px;
+    letter-spacing: 0.1em;
+    font-style: italic;
+    /*倾斜*/
+}
+
+.artice-year {
+    padding: 0 50px;
+}
+
+.artice-year-number>span {
+    font-weight: 700;
+    color: #293846;
+    font-size: 20px;
+}
+
+.artice-month {
+    margin: 20px 0;
+}
+
+.artice-month-title {
+    margin-bottom: 14px;
+}
+
+.artice-month-title span,
+a {
+    display: inline-block;
+}
+
+.artice-month-title span {
+    margin-right: 20px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+
+/*右侧版权*/
+
+.m-copy {
+    /*内容往下看*/
+}
+
+.m-copy-left {
+    margin-left: 50px;
+    float: left;
+}
+
+.m-copy-right {
+    margin-right: 50px;
+    float: right;
+}
+
+
+/*纸小墨官方链接*/
+
+.copy-link {
+    display: inline;
+}
+
+.copy-link:link {
+    color: #fff;
+}
+
+.copy-link:visited {
+    color: #fff;
+}
+
+.copy-link:hover {
+    color: #ededed;
+}
+
+.copy-link:active {
+    color: #ededed;
+}
+
+
+/*文章标题链接开始*/
+
+.artice-month-title a:link {
+    color: #006cff;
+    border-bottom: 1px #006cff dashed;
+}
+
+.artice-month-title a:visited {
+    color: #006cff;
+    border-bottom: 1px #006cff dashed;
+}
+
+.artice-month-title a:hover {
+    color: #008EFF;
+    border-bottom: 1px #008EFF dashed;
+}
+
+.artice-month-title a:active {
+    color: #008EFF;
+    border-bottom: 1px #008EFF dashed;
+}
+
+
+/*文章标题链接结束*/
+
+
+/*作者链接开始*/
+
+.post-name:link {
+    color: #293846;
+}
+
+.post-name:visited {
+    color: #293846;
+}
+
+.post-name:hover {
+    color: #7f8c8d;
+}
+
+.post-name:active {
+    color: #7f8c8d;
+}
+
+
+/*作者链接结束*/
+
+
+/*标签链接开始*/
+
+.post-tag:link {
+    color: #7f8c8d;
+}
+
+.post-tag:visited {
+    color: #7f8c8d;
+}
+
+.post-tag:hover {
+    color: #006cff;
+}
+
+.post-tag:active {
+    color: #006cff;
+}
+
+
+/*标签链接结束*/
+
+
+/*小于900时的css*/
+
+@media only screen and (max-width:900px) {
+    .header {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+    }
+    .search {
+        top: 10px;
+    }
+    .h-center {
+        padding-top: 100px;
+    }
+    .nav {
+        margin: 40px 0 0;
+    }
+    .copy {
+        display: none;
+    }
+    .main {
+        left: 0;
+        right: 0;
+        top: 500px;
+        bottom: 0;
+        width: 100%;
+        overflow-y: visible;
+        /*滚动条隐藏*/
+    }
+    .main-page {
+        padding: 30px 50px 0;
+    }
+    .m-copy {
+        margin-top: 40px;
+        background-color: #293846;
+        height: 60px;
+        width: 100%;
+        color: #fff;
+        line-height: 60px;
+    }
+}
+
+@media only screen and (min-width:900px) {
+    .main {
+        overflow-y: scroll;
+        /*滚动条一直出现*/
+    }
+    .m-copy {
+        display: none;
+    }
+    .main-page {
+        padding: 30px 50px;
+    }
+}
